@@ -6,7 +6,7 @@ RUN apt-get -y update
 RUN apt-get install -y gccgo make git libseccomp2
 RUN git clone https://gitlab.com/ecp-ci/jacamar-ci.git
 RUN cd jacamar-ci
-RUN make build
+RUN make
 RUN make install PREFIX=/usr/local
 RUN groupadd slurm --gid 12202
 RUN adduser slurm000 --uid 6003 --group slurm --gid 12202
