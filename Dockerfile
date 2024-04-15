@@ -7,11 +7,11 @@ RUN apt-get -y update \
 && git clone https://gitlab.com/ecp-ci/jacamar-ci.git \
 && cd jacamar-ci \
 && make \
-&& make install PREFIX=/usr/local
-RUN groupadd slurm --gid 12202 \
-&& adduser --uid 6003 --ingroup slurm slurm000
-RUN cd /etc/gitlab-runner
-RUN gitlab-runner --version
-RUN /opt/jacamar/bin/jacamar --version
-RUN id slurm000
-RUN apt-get remove -y git
+&& make install PREFIX=/usr/local \
+&& groupadd slurm --gid 12202 \
+&& adduser --uid 6003 --ingroup slurm slurm000 \
+&& cd /etc/gitlab-runner \
+&& gitlab-runner --version \
+&& /opt/jacamar/bin/jacamar --version \
+&& id slurm000 \
+&& apt-get remove -y git make
