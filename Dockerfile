@@ -8,8 +8,8 @@ RUN apt-get -y update \
 && cd jacamar-ci \
 && make \
 && make install PREFIX=/usr/local
-RUN groupadd slurm --gid 12202
-RUN adduser slurm000 --uid 6003 --group slurm --gid 12202
+RUN groupadd slurm --gid 12202 \
+&& adduser --uid 6003 --ingroup slurm slurm000
 RUN cd /etc/gitlab-runner
 RUN gitlab-runner --version
 RUN /opt/jacamar/bin/jacamar --version
