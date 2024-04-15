@@ -2,7 +2,8 @@ FROM ubuntu:latest
 
 WORKDIR /root
 
-RUN apt-get -y update \
+RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash \
+&& apt-get update \
 && apt-get install -y make git golang libseccomp-dev gitlab-runner \
 && git clone https://gitlab.com/ecp-ci/jacamar-ci.git \
 && cd jacamar-ci \
