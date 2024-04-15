@@ -1,10 +1,8 @@
-Bootstrap: docker
-From: registry.gitlab.com/ecp-ci/ecp-ci.gitlab.io/jacamar-quick-start:latest
+FROM registry.gitlab.com/ecp-ci/ecp-ci.gitlab.io/jacamar-quick-start:latest
 
-%files
-	jacamar-ci-0.14.0-1.el7.x86_64.rpm /etc/gitlab-runner/
-%post
-	apt-get -y update
+WORKDIR /root
+
+RUN 	apt-get -y update
 	apt-get -y git
 	git clone https://gitlab.com/ecp-ci/jacamar-ci.git
 	cd jacamar-ci
@@ -18,3 +16,5 @@ From: registry.gitlab.com/ecp-ci/ecp-ci.gitlab.io/jacamar-quick-start:latest
 	gitlab-runner --version
 	/opt/jacamar/bin/jacamar --version
 	id slurm000
+
+ 	apt-get -y uninstall git
