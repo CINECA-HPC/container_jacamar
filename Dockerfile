@@ -3,7 +3,7 @@ FROM ubuntu:latest
 WORKDIR /root
 
 RUN apt-get -y update \
-&& apt-get install -y make git golang libseccomp2 \
+&& apt-get install -y make git golang libseccomp-dev \
 && git clone https://gitlab.com/ecp-ci/jacamar-ci.git \
 && cd jacamar-ci \
 && make \
