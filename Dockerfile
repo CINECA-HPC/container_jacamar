@@ -11,7 +11,7 @@ RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runn
 && git clone https://gitlab.com/ecp-ci/jacamar-ci.git \
 && cd jacamar-ci \
 && make \
-&& make install PREFIX=/usr/local \
+&& make install PREFIX=/opt/jacamar/ \
 && groupadd slurm --gid 12202 \
 && adduser --disabled-password --gecos "" --uid 6003 --ingroup slurm slurm000 \
 && cd /etc/gitlab-runner \
