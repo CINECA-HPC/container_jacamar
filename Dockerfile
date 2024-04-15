@@ -18,5 +18,3 @@ RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runn
 && gitlab-runner --version \
 && /opt/jacamar/bin/jacamar --version \
 && id slurm000
-
-ADD custom-config.toml /etc/gitlab-runner/
